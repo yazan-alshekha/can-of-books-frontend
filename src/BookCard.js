@@ -7,6 +7,10 @@ import Col from 'react-bootstrap/Col';
 
 class BookCard extends React.Component {
 
+
+   
+
+
     constructor(props) {
         super(props);
 
@@ -45,6 +49,7 @@ class BookCard extends React.Component {
                         <Card.Text>
                             {this.props.itemDetails.description}
                         </Card.Text>
+                        <Button onClick={ ()=> this.props.deleteFunction(this.props.itemDetails._id) }>Delete</Button>
                     </Card.Body>
                 </Card>
             </Col>
