@@ -40,6 +40,14 @@ class MyFavoriteBooks extends React.Component {
 
   }
 
+   deleteBook = async (BookId) => {
+
+    let url = await axios.delete(`${process.env.REACT_APP_SERVER_LINK}/deleteBook/${BookId}?ownerName=${this.props.auth0.user.email}`);
+    this.setState({
+      userBooks: url.data
+    });
+  }
+
   render() {
     return (
       <>
@@ -59,7 +67,7 @@ class MyFavoriteBooks extends React.Component {
 
         <Row xs={1} md={3} className="g-4">
           {this.state.userBooks.map((item, idx) => (
-            <BookCard itemDetails={item} />
+            <BookCard itemDetails={item} deleteFunction={this.deleteBook} />
           ))}
         </Row>
       </>

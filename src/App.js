@@ -5,7 +5,8 @@ import Footer from './Footer';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import Profile from './Profile'
 import Login from './Login.js';
@@ -13,6 +14,8 @@ import BestBooks from './BestBooks.js';
 import { withAuth0 } from '@auth0/auth0-react';
 
 class App extends React.Component {
+
+  
 
   render() {
     console.log('app', this.props);
@@ -32,6 +35,10 @@ class App extends React.Component {
               <Profile />
             </Route>
           </Switch>
+
+           {/* if you would like to redirect after login in you can yse built in  component  'Redirect' */}
+          {/* {this.props.auth0.isAuthenticated && <Redirect to='/profile' />  } */}
+
           <Footer />
           {/* </IsLoadingAndError> */}
         </Router>
