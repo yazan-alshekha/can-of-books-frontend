@@ -36,9 +36,9 @@ class App extends React.Component {
             </Route>
           </Switch>
 
-           {/* if you would like to redirect after login in you can yse built in  component  'Redirect' */}
+           {/* if you would like to redirect after login you can use builtin  component  'Redirect' */}
           {/* {this.props.auth0.isAuthenticated && <Redirect to='/profile' />  } */}
-
+          
           <Footer />
           {/* </IsLoadingAndError> */}
         </Router>

@@ -27,13 +27,13 @@ class AddBookForm extends React.Component {
                 <Form onSubmit={this.submitFormData}>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Title Name </Form.Label>
-                        <Form.Control type="text" placeholder="Add your title here" name="titleName" />
+                        <Form.Control type="text" placeholder="Add your title here" name="titleName" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" placeholder="Enter your description here" name="description" />
-                    </Form.Group>
-                    <Form.Check type="radio" label="Available" name="availability" value="available" />
+                        <Form.Control type="text" placeholder="Enter your description here" name="description" required />
+                    </Form.Group >
+                    <Form.Check type="radio" label="Available" name="availability" value="available" required/>
                     <Form.Check type="radio" label="Unavailable" name="availability" value="unavailable" />
                     <Button variant="primary" type="submit">
                         Submit
