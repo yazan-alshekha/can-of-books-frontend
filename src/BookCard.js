@@ -6,11 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 class BookCard extends React.Component {
-
-
-   
-
-
     constructor(props) {
         super(props);
 
@@ -50,6 +45,8 @@ class BookCard extends React.Component {
                             {this.props.itemDetails.description}
                         </Card.Text>
                         <Button onClick={ ()=> this.props.deleteFunction(this.props.itemDetails._id) }>Delete</Button>
+                      
+                        <Button onClick={ ()=> this.props.showModal(this.props.itemDetails) }>Update</Button>
                     </Card.Body>
                 </Card>
             </Col>
