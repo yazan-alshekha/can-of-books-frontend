@@ -8,15 +8,21 @@ import { withAuth0 } from '@auth0/auth0-react';
 class AddBookForm extends React.Component {
     submitFormData = async (event) => {
         event.preventDefault();
-        let NewBook = {
+         let  NewBook = {
             ownerName: this.props.auth0.user.email,
             bookTitlename: event.target.titleName.value,
             description: event.target.description.value,
             availability: event.target.availability.value,
         }
-        
-        let url =await axios.post(`${process.env.REACT_APP_SERVER_LINK}/addBook?`,NewBook);
-    
+
+        // emptying the form data
+        event.target.titleName.value = null;
+        event.target.description.value=null;
+        event.target.availability.value=null;
+
+
+        let url = await axios.post(`${process.env.REACT_APP_SERVER_LINK}/addBook?`, NewBook);
+        // console.log("returned after submit", url.data);
         this.props.addToState(url.data);
     }
 
@@ -33,7 +39,7 @@ class AddBookForm extends React.Component {
                         <Form.Label>Description</Form.Label>
                         <Form.Control type="text" placeholder="Enter your description here" name="description" required />
                     </Form.Group >
-                    <Form.Check type="radio" label="Available" name="availability" value="available" required/>
+                    <Form.Check type="radio" label="Available" name="availability" value="available" required />
                     <Form.Check type="radio" label="Unavailable" name="availability" value="unavailable" />
                     <Button variant="primary" type="submit">
                         Submit
@@ -47,4 +53,4 @@ class AddBookForm extends React.Component {
 
 
 
-export default  withAuth0(AddBookForm);
+export default withAuth0(AddBookForm);
