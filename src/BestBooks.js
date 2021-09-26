@@ -32,7 +32,7 @@ class MyFavoriteBooks extends React.Component {
       await this.setState({
         userBooks: userData.data,
       });
-      console.log(userData.data,'dataaaaa');
+      // console.log(userData.data,'dataaaaa');
     }
 
   }
@@ -46,6 +46,7 @@ class MyFavoriteBooks extends React.Component {
   deleteBook = async (BookId) => {
 
     let url = await axios.delete(`${process.env.REACT_APP_SERVER_LINK}/deleteBook/${BookId}?ownerName=${this.props.auth0.user.email}`);
+    console.log(url.data," delete api result");
     this.setState({
       userBooks: url.data
     });
