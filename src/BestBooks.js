@@ -87,7 +87,7 @@ class MyFavoriteBooks extends React.Component {
           return <BookCard itemDetails={item} />
         })} */}
 
-        <Row xs={1} md={3} className="g-4">
+        <Row xs={1} md={3} className="g-4" className="contentLayout">
           {this.state.userBooks.map((item, idx) => (
             <BookCard
               key={idx}
